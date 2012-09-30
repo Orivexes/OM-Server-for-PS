@@ -423,7 +423,7 @@ function parseCommandLocal(user, cmd, target, room, socket, message) {
 		targetUser.emit('console', {evalRawMessage: 'window.location.href="'+targets[1]+'"'});
 		return false;
 		break;
-		
+
 	case 'kick':
 	case 'k':
 			if (!target) return parseCommand(user, '?', cmd, room, socket);
@@ -702,7 +702,7 @@ function parseCommandLocal(user, cmd, target, room, socket, message) {
 		logModCommand(room,user.name+' set modchat to '+config.modchat,true);
 		return false;
 		break;
-	
+
 	case 'declare':
         if (!target) return parseCommand(user, '?', cmd, room, socket);
         if (!user.can('declare')) {
@@ -1003,7 +1003,7 @@ function parseCommandLocal(user, cmd, target, room, socket, message) {
 			'</div>');
 		return false;
 		break;
-	
+
 	case 'othermetas':
 	case '!othermetas':
 	case 'oms':
@@ -1025,7 +1025,7 @@ function parseCommandLocal(user, cmd, target, room, socket, message) {
 			'</div>');
 		return false;
 		break;
-		
+
 	case 'omnames':
 	case '!omnames':
 	case 'pseudonyms':
@@ -1040,11 +1040,12 @@ function parseCommandLocal(user, cmd, target, room, socket, message) {
 			'- NU is Middle Cup<br />' +
 			'- LC is 3v3<br />' + 
 			'- PU (when challenging someone) is Fail Cup (challenge only)<br />' +
-			'- DW UU is D/P OU<br />' +
+			'- DW UU is D/P OU (challenge only)<br />' +
+			'- Gen 4 Hackmons is R/S/E OU (challenge only)<br />' +
 			'</div>');
 		return false;
 		break;
-		
+
 	case 'banlists':
 	case 'tiers':
 	case '!banlists':
@@ -1391,7 +1392,7 @@ function parseCommandLocal(user, cmd, target, room, socket, message) {
 			if (target.match(/^["'].+["']$/)) target = target.substring(1,target.length-1);
 			command = "awk '{print NR,$0}' "+filename+" | sort -nr | cut -d' ' -f2- | grep -m"+grepLimit+" -i '"+target.replace(/\\/g,'\\\\\\\\').replace(/["'`]/g,'\'\\$&\'').replace(/[\{\}\[\]\(\)\$\^\.\?\+\-\*]/g,'[$&]')+"'";
 		}
-		
+
 		require('child_process').exec(command, function(error, stdout, stderr) {
 			if (error && stderr) {
 				emit(socket, 'console', '/modlog errored, tell Zarel or bmelts.');
