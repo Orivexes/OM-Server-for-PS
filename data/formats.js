@@ -112,7 +112,7 @@ exports.BattleFormats = {
 		challengeShow: true,
 		searchShow: true,
 		isTeambuilderFormat: true,
-		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
+		ruleset: ['Pokemon', 'Standard'],
 		banlist: ['Uber']
 	},
 	hackmons: {
@@ -203,14 +203,14 @@ exports.BattleFormats = {
 		ruleset: []
 	},
 	gen4hackmons: {
-		mod: 'gen4',
+		mod: 'gen3',
 		effectType: 'Format',
-		name: "[Gen 4] OU",
+		name: "[Gen 3] OU",
 		rated: true,
 		challengeShow: true,
 		searchShow: true,
 		isTeambuilderFormat: true,
-		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
+		ruleset: ['Pokemon', 'Standard'],
 		banlist: ['Uber']
 	},
 	gen4debugmode: {
@@ -423,7 +423,7 @@ exports.BattleFormats = {
 		effectType: 'Rule',
 		validateSet: function(set) {
 			var template = this.getTemplate(set.species || set.name);
-			
+
 			if (template.prevo) {
 				return [set.species+" isn't the first in its evolution family."];
 			}
@@ -439,7 +439,7 @@ exports.BattleFormats = {
 		effectType: 'Rule',
 		validateSet: function(set) {
 			var template = this.getTemplate(set.species || set.name);
-			
+
 			if (!template.evos) {
 				return [set.species+" is fully evolved."];
 			}
@@ -452,7 +452,7 @@ exports.BattleFormats = {
 		effectType: 'Rule',
 		validateSet: function(set) {
 			var template = this.getTemplate(set.species || set.name);
-			
+
 			if (!template.evos) {
 				return [set.species+" is not a middle evolution."];
 			}
@@ -468,7 +468,7 @@ exports.BattleFormats = {
 		effectType: 'Rule',
 		validateSet: function(set) {
 			var template = this.getTemplate(set.species || set.name);
-			
+
 			if (!((set.species === 'Caterpie') || (set.species === 'Metapod') || (set.species === 'Weedle') || (set.species === 'Kakuna') || (set.species === 'Magikarp') || (set.species === 'Ditto') || (set.species === 'Unown') || (set.species === 'Wurmple') || (set.species === 'Silcoon') || (set.species === 'Cascoon') || (set.species === 'Beldum') || (set.species === 'Kricketot') || (set.species === 'Burmy') || (set.species === 'Combee') || (set.species === 'Tynamo'))) {
 				return [set.species+" isn't a Fail Cup pokemon."];
 			}
