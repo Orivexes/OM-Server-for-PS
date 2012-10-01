@@ -143,7 +143,7 @@ exports.BattleFormats = {
 		searchShow: true,
 		isTeambuilderFormat: true,
 		ruleset: ['NU'],
-		banlist: ["Charizard", "Wartortle", "Vileplume", "Kadabra", "Golem", "Haunter", "Exeggutor", "Marowak", "Weezing", "Tangela", "Kangaskhan", "Electabuzz", "Pinsir", "Tauros", "Lapras", "Flareon", "Ampharos", "Jumpluff", "Misdreavus", "Ursaring", "Piloswine", "Miltank", "Linoone", "Ludicolo", "Swellow", "Gardevoir", "Ninjask", "Camerupt", "Torkoal", "Cacturne", "Altaria", "Armaldo", "Absol", "Gorebyss", "Regirock", "Regice", "Torterra", "Rampardos", "Bastiodon", "Floatzel", "Drifblim", "Skuntank", "Lickilicky", "Probopass", "Rotom-Fan", "Serperior", "Emboar", "Samurott", "Musharna", "Zebstrika", "Gigalith", "Gurdurr", "Sawk", "Carracosta", "Garbodor", "Cinccino", "Sawsbuck", "Amoonguss", "Alomomola", "Golurk", "Braviary"]
+		banlist: ["Charizard", "Wartortle", "Kadabra", "Golem", "Haunter", "Exeggutor", "Rapidash", "Electrode", "Weezing", "Kangaskhan", "Pinsir", "Lapras", "Ditto", "Articuno", "Ampharos", "Misdreavus", "Piloswine", "Miltank", "Ludicolo", "Swellow", "Gardevoir", "Ninjask", "Camerupt", "Torkoal", "Cacturne", "Altaria", "Armaldo", "Cradily", "Zangoose", "Absol", "Gorebyss", "Regirock", "Regice", "Torterra", "Bastiodon", "Floatzel", "Drifblim", "Skuntank", "Lickilicky", "Probopass", "Rotom-Fan", "Serperior", "Emboar", "Samurott", "Musharna", "Gurdurr", "Sawk", "Carracosta", "Garbodor", "Cinccino", "Sawsbuck", "Amoonguss", "Alomomola", "Eelektross", "Golurk", "Braviary"]
 	},
 	nu: {
 		effectType: 'Format',
@@ -423,7 +423,7 @@ exports.BattleFormats = {
 		effectType: 'Rule',
 		validateSet: function(set) {
 			var template = this.getTemplate(set.species || set.name);
-
+			
 			if (template.prevo) {
 				return [set.species+" isn't the first in its evolution family."];
 			}
@@ -439,7 +439,7 @@ exports.BattleFormats = {
 		effectType: 'Rule',
 		validateSet: function(set) {
 			var template = this.getTemplate(set.species || set.name);
-
+			
 			if (!template.evos) {
 				return [set.species+" is fully evolved."];
 			}
@@ -452,7 +452,7 @@ exports.BattleFormats = {
 		effectType: 'Rule',
 		validateSet: function(set) {
 			var template = this.getTemplate(set.species || set.name);
-
+			
 			if (!template.evos) {
 				return [set.species+" is not a middle evolution."];
 			}
@@ -468,7 +468,7 @@ exports.BattleFormats = {
 		effectType: 'Rule',
 		validateSet: function(set) {
 			var template = this.getTemplate(set.species || set.name);
-
+			
 			if (!((set.species === 'Caterpie') || (set.species === 'Metapod') || (set.species === 'Weedle') || (set.species === 'Kakuna') || (set.species === 'Magikarp') || (set.species === 'Ditto') || (set.species === 'Unown') || (set.species === 'Wurmple') || (set.species === 'Silcoon') || (set.species === 'Cascoon') || (set.species === 'Beldum') || (set.species === 'Kricketot') || (set.species === 'Burmy') || (set.species === 'Combee') || (set.species === 'Tynamo'))) {
 				return [set.species+" isn't a Fail Cup pokemon."];
 			}
